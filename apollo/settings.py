@@ -108,6 +108,15 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
+REST_FRAMEWORK = {
+    "DEFAULT_MODEL_SERIALIZERS_CLASS" : 
+        "rest_framework.serializers.HyperlinkedModelSerializer",
+
+    "DEFAULT_PERMISSION_CLASSES" : [
+        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
+    ]
+}
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
