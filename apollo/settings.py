@@ -127,6 +127,8 @@ INSTALLED_APPS = (
 
     'rest_framework',
     'apollo_ember',
+    "south",
+    "api",
 )
 
 # A sample logging configuration. The only tangible logging

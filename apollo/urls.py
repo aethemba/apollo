@@ -8,7 +8,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
 	url(r"^$", TemplateView.as_view(template_name="apollo_ember/index.html")),    
-    url(r'^api', include("api.urls")),
+    url(r'^api/', include("api.urls")),
     # url(r'^apollo/', include('apollo.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
