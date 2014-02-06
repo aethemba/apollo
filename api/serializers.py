@@ -3,13 +3,14 @@ from rest_framework import serializers
 from api.models import Activity
 
 class UserSerializer(serializers.ModelSerializer):
-	activities = serializers.PrimaryKeyRelatedField(many=True)
+    activities = serializers.PrimaryKeyRelatedField(many=True)
 
-	class Meta:
-		model = User
-		fields = ("id", "username", "email", "activities")
+    class Meta:
+        model = User
+        fields = ("id", "username", "email", "activities")
 
 class ActivitySerializer(serializers.ModelSerializer):
-	class Meta:
-		model = Activity
-		fields = ("name", "category", "description")
+    class Meta:
+        model = Activity
+        resource_name = 'activity'
+        fields = ("id", "name", "category", "description")
