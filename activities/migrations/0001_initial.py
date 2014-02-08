@@ -14,18 +14,18 @@ class Migration(SchemaMigration):
             ('name', self.gf('django.db.models.fields.CharField')(max_length=255)),
             ('created', self.gf('django.db.models.fields.DateTimeField')()),
             ('updated', self.gf('django.db.models.fields.DateTimeField')()),
-            ('category', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['api.Category'], null=True, blank=True)),
+            ('category', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['activities.Category'], null=True, blank=True)),
             ('description', self.gf('django.db.models.fields.TextField')(blank=True)),
             ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
         ))
-        db.send_create_signal(u'api', ['Activity'])
+        db.send_create_signal(u'activities', ['Activity'])
 
         # Adding model 'Category'
         db.create_table(u'api_category', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=255)),
         ))
-        db.send_create_signal(u'api', ['Category'])
+        db.send_create_signal(u'activities', ['Category'])
 
 
     def backwards(self, orm):
@@ -37,9 +37,9 @@ class Migration(SchemaMigration):
 
 
     models = {
-        u'api.activity': {
+        u'activities.activity': {
             'Meta': {'object_name': 'Activity'},
-            'category': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['api.Category']", 'null': 'True', 'blank': 'True'}),
+            'category': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['activities.Category']", 'null': 'True', 'blank': 'True'}),
             'created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
@@ -47,7 +47,7 @@ class Migration(SchemaMigration):
             'updated': ('django.db.models.fields.DateTimeField', [], {}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"})
         },
-        u'api.category': {
+        u'activities.category': {
             'Meta': {'object_name': 'Category'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '255'})
@@ -90,4 +90,4 @@ class Migration(SchemaMigration):
         }
     }
 
-    complete_apps = ['api']
+    complete_apps = ['activities']

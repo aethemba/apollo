@@ -5,7 +5,7 @@
  *            Portions Copyright 2008-2011 Apple Inc. All rights reserved.
  * @license   Licensed under MIT license
  *            See https://raw.github.com/emberjs/ember.js/master/LICENSE
- * @version   1.3.1
+ * @version   1.3.0
  */
 
 
@@ -203,7 +203,7 @@ if (!Ember.testing) {
  *            Portions Copyright 2008-2011 Apple Inc. All rights reserved.
  * @license   Licensed under MIT license
  *            See https://raw.github.com/emberjs/ember.js/master/LICENSE
- * @version   1.3.1
+ * @version   1.3.0
  */
 
 
@@ -286,7 +286,7 @@ var define, requireModule, require, requirejs;
 
   @class Ember
   @static
-  @version 1.3.1
+  @version 1.3.0
 */
 
 if ('undefined' === typeof Ember) {
@@ -313,10 +313,10 @@ Ember.toString = function() { return "Ember"; };
 /**
   @property VERSION
   @type String
-  @default '1.3.1'
+  @default '1.3.0'
   @static
 */
-Ember.VERSION = '1.3.1';
+Ember.VERSION = '1.3.0';
 
 /**
   Standard environmental variables. You can define these in a global `EmberENV`
@@ -9650,7 +9650,7 @@ define("rsvp/promise/cast",
       Example:
 
       ```javascript
-      var thennable = $.getJSON('/api/foo');
+      var thennable = $.getJSON('/activities/foo');
       var casted = RSVP.Promise.cast(thennable);
 
       console.log(thennable === casted); // false
@@ -10119,8 +10119,8 @@ define("rsvp",
 
 (function() {
 /**
-Public api for the container is still in flux.
-The public api, specified on the application namespace should be considered the stable api.
+Public activities for the container is still in flux.
+The public activities, specified on the application namespace should be considered the stable activities.
 // @module container
   @private
 */
@@ -10246,8 +10246,8 @@ define("container",
 
 
     // A lightweight container that helps to assemble and decouple components.
-    // Public api for the container is still in flux.
-    // The public api, specified on the application namespace should be considered the stable api.
+    // Public activities for the container is still in flux.
+    // The public activities, specified on the application namespace should be considered the stable activities.
     function Container(parent) {
       this.parent = parent;
       this.children = [];
@@ -10428,9 +10428,9 @@ define("container",
 
         ```javascript
         var container = new Container();
-        container.register('api:twitter', Twitter);
+        container.register('activities:twitter', Twitter);
 
-        container.resolve('api:twitter') // => Twitter
+        container.resolve('activities:twitter') // => Twitter
         ```
 
         Optionally the container can be provided with a custom resolver.
@@ -10445,7 +10445,7 @@ define("container",
         };
 
         // the twitter factory is added to the module system
-        container.resolve('api:twitter') // => Twitter
+        container.resolve('activities:twitter') // => Twitter
         ```
 
         @method resolve
@@ -10503,14 +10503,14 @@ define("container",
 
         ```javascript
         var container = new Container();
-        container.register('api:twitter', Twitter);
+        container.register('activities:twitter', Twitter);
 
-        var twitter = container.lookup('api:twitter');
+        var twitter = container.lookup('activities:twitter');
 
         twitter instanceof Twitter; // => true
 
         // by default the container will return singletons
-        var twitter2 = container.lookup('api:twitter');
+        var twitter2 = container.lookup('activities:twitter');
         twitter instanceof Twitter; // => true
 
         twitter === twitter2; //=> true
@@ -10520,10 +10520,10 @@ define("container",
 
         ```javascript
         var container = new Container();
-        container.register('api:twitter', Twitter);
+        container.register('activities:twitter', Twitter);
 
-        var twitter = container.lookup('api:twitter', { singleton: false });
-        var twitter2 = container.lookup('api:twitter', { singleton: false });
+        var twitter = container.lookup('activities:twitter', { singleton: false });
+        var twitter2 = container.lookup('activities:twitter', { singleton: false });
 
         twitter === twitter2; //=> false
         ```
@@ -11599,7 +11599,7 @@ var fmt = Ember.String.fmt,
 if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.String) {
 
   /**
-    See [Ember.String.fmt](/api/classes/Ember.String.html#method_fmt).
+    See [Ember.String.fmt](/activities/classes/Ember.String.html#method_fmt).
 
     @method fmt
     @for String
@@ -11609,7 +11609,7 @@ if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.String) {
   };
 
   /**
-    See [Ember.String.w](/api/classes/Ember.String.html#method_w).
+    See [Ember.String.w](/activities/classes/Ember.String.html#method_w).
 
     @method w
     @for String
@@ -11619,7 +11619,7 @@ if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.String) {
   };
 
   /**
-    See [Ember.String.loc](/api/classes/Ember.String.html#method_loc).
+    See [Ember.String.loc](/activities/classes/Ember.String.html#method_loc).
 
     @method loc
     @for String
@@ -11629,7 +11629,7 @@ if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.String) {
   };
 
   /**
-    See [Ember.String.camelize](/api/classes/Ember.String.html#method_camelize).
+    See [Ember.String.camelize](/activities/classes/Ember.String.html#method_camelize).
 
     @method camelize
     @for String
@@ -11639,7 +11639,7 @@ if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.String) {
   };
 
   /**
-    See [Ember.String.decamelize](/api/classes/Ember.String.html#method_decamelize).
+    See [Ember.String.decamelize](/activities/classes/Ember.String.html#method_decamelize).
 
     @method decamelize
     @for String
@@ -11649,7 +11649,7 @@ if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.String) {
   };
 
   /**
-    See [Ember.String.dasherize](/api/classes/Ember.String.html#method_dasherize).
+    See [Ember.String.dasherize](/activities/classes/Ember.String.html#method_dasherize).
 
     @method dasherize
     @for String
@@ -11659,7 +11659,7 @@ if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.String) {
   };
 
   /**
-    See [Ember.String.underscore](/api/classes/Ember.String.html#method_underscore).
+    See [Ember.String.underscore](/activities/classes/Ember.String.html#method_underscore).
 
     @method underscore
     @for String
@@ -11669,7 +11669,7 @@ if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.String) {
   };
 
   /**
-    See [Ember.String.classify](/api/classes/Ember.String.html#method_classify).
+    See [Ember.String.classify](/activities/classes/Ember.String.html#method_classify).
 
     @method classify
     @for String
@@ -11679,7 +11679,7 @@ if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.String) {
   };
 
   /**
-    See [Ember.String.capitalize](/api/classes/Ember.String.html#method_capitalize).
+    See [Ember.String.capitalize](/activities/classes/Ember.String.html#method_capitalize).
 
     @method capitalize
     @for String
@@ -16149,7 +16149,7 @@ Ember.computed.uniq = function() {
 };
 
 /**
-  Alias for [Ember.computed.uniq](/api/#method_computed_uniq).
+  Alias for [Ember.computed.uniq](/activities/#method_computed_uniq).
 
   @method computed.union
   @for Ember
@@ -16590,7 +16590,7 @@ if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.Function) {
     will instead clear the cache so that it is updated when the next `get`
     is called on the property.
 
-    See [Ember.ComputedProperty](/api/classes/Ember.ComputedProperty.html), [Ember.computed](/api/#method_computed).
+    See [Ember.ComputedProperty](/activities/classes/Ember.ComputedProperty.html), [Ember.computed](/activities/#method_computed).
 
     @method property
     @for Function
@@ -19482,7 +19482,7 @@ var get = Ember.get, set = Ember.set, guidFor = Ember.guidFor, isNone = Ember.is
   When using `Ember.Set`, you can observe the `"[]"` property to be
   alerted whenever the content changes. You can also add an enumerable
   observer to the set to be notified of specific objects that are added and
-  removed from the set. See [Ember.Enumerable](/api/classes/Ember.Enumerable.html)
+  removed from the set. See [Ember.Enumerable](/activities/classes/Ember.Enumerable.html)
   for more information on enumerables.
 
   This is often unhelpful. If you are filtering sets of objects, for instance,
@@ -22064,7 +22064,7 @@ var EMPTY_ARRAY = [];
   will be removed.
 
   Both `classNames` and `classNameBindings` are concatenated properties. See
-  [Ember.Object](/api/classes/Ember.Object.html) documentation for more
+  [Ember.Object](/activities/classes/Ember.Object.html) documentation for more
   information about concatenated properties.
 
   ## HTML Attributes
@@ -22125,7 +22125,7 @@ var EMPTY_ARRAY = [];
   Updates to the the property of an attribute binding will result in automatic
   update of the  HTML attribute in the view's rendered HTML representation.
 
-  `attributeBindings` is a concatenated property. See [Ember.Object](/api/classes/Ember.Object.html)
+  `attributeBindings` is a concatenated property. See [Ember.Object](/activities/classes/Ember.Object.html)
   documentation for more information about concatenated properties.
 
   ## Templates
@@ -22289,7 +22289,7 @@ var EMPTY_ARRAY = [];
   </div>
   ```
 
-  See [Ember.Handlebars.helpers.yield](/api/classes/Ember.Handlebars.helpers.html#method_yield)
+  See [Ember.Handlebars.helpers.yield](/activities/classes/Ember.Handlebars.helpers.html#method_yield)
   for more information.
 
   ## Responding to Browser Events
@@ -22387,7 +22387,7 @@ var EMPTY_ARRAY = [];
 
   ### Handlebars `{{action}}` Helper
 
-  See [Handlebars.helpers.action](/api/classes/Ember.Handlebars.helpers.html#method_action).
+  See [Handlebars.helpers.action](/activities/classes/Ember.Handlebars.helpers.html#method_action).
 
   ### Event Names
 
@@ -22442,7 +22442,7 @@ var EMPTY_ARRAY = [];
   ## Handlebars `{{view}}` Helper
 
   Other `Ember.View` instances can be included as part of a view's template by
-  using the `{{view}}` Handlebars helper. See [Ember.Handlebars.helpers.view](/api/classes/Ember.Handlebars.helpers.html#method_view)
+  using the `{{view}}` Handlebars helper. See [Ember.Handlebars.helpers.view](/activities/classes/Ember.Handlebars.helpers.html#method_view)
   for additional information.
 
   @class View
@@ -26952,7 +26952,7 @@ if (Ember.EXTEND_PROTOTYPES === true || Ember.EXTEND_PROTOTYPES.String) {
     '<div>someString</div>'.htmlSafe()
     ```
 
-    See [Ember.String.htmlSafe](/api/classes/Ember.String.html#method_htmlSafe).
+    See [Ember.String.htmlSafe](/activities/classes/Ember.String.html#method_htmlSafe).
 
     @method htmlSafe
     @for String
@@ -27467,20 +27467,6 @@ function exists(value) {
   return !Ember.isNone(value);
 }
 
-function sanitizedHandlebarsGet(currentContext, property, options) {
-  var result = handlebarsGet(currentContext, property, options);
-  if (result === null || result === undefined) {
-    result = "";
-  } else if (!(result instanceof Handlebars.SafeString)) {
-    result = String(result);
-  }
-  if (!options.hash.unescaped){
-    result = Handlebars.Utils.escapeExpression(result);
-  }
-
-  return result;
-}
-
 // Binds a property into the DOM. This will create a hook in DOM that the
 // KVO system will look for and update if the property changes.
 function bind(property, options, preserveContext, shouldDisplay, valueNormalizer, childProperties) {
@@ -27572,9 +27558,9 @@ function simpleBind(currentContext, property, options) {
         Ember.run.once(view, 'rerender');
       };
 
-      output = sanitizedHandlebarsGet(currentContext, property, options);
-
-      data.buffer.push(output);
+      var result = handlebarsGet(currentContext, property, options);
+      if (result === null || result === undefined) { result = ""; }
+      data.buffer.push(result);
     } else {
       var bindView = new Ember._SimpleHandlebarsView(
         property, currentContext, !options.hash.unescaped, options.data
@@ -27598,9 +27584,8 @@ function simpleBind(currentContext, property, options) {
   } else {
     // The object is not observable, so just render it out and
     // be done with it.
-    output = sanitizedHandlebarsGet(currentContext, property, options);
-
-    data.buffer.push(output);
+    output = handlebarsGet(currentContext, property, options);
+    data.buffer.push((output === null || typeof output === 'undefined') ? '' : output);
   }
 }
 
@@ -27821,7 +27806,7 @@ EmberHandlebars.registerHelper('with', function withHelper(context, options) {
 
 
 /**
-  See [boundIf](/api/classes/Ember.Handlebars.helpers.html#method_boundIf)
+  See [boundIf](/activities/classes/Ember.Handlebars.helpers.html#method_boundIf)
 
   @method if
   @for Ember.Handlebars.helpers
@@ -28588,7 +28573,7 @@ var get = Ember.get, handlebarsGet = Ember.Handlebars.get, fmt = Ember.String.fm
 
 /**
   `{{collection}}` is a `Ember.Handlebars` helper for adding instances of
-  `Ember.CollectionView` to a template. See [Ember.CollectionView](/api/classes/Ember.CollectionView.html)
+  `Ember.CollectionView` to a template. See [Ember.CollectionView](/activities/classes/Ember.CollectionView.html)
    for additional information on how a `CollectionView` functions.
 
   `{{collection}}`'s primary use is as a block helper with a `contentBinding`
@@ -29671,7 +29656,7 @@ var set = Ember.set, get = Ember.get;
   The internal class used to create text inputs when the `{{input}}`
   helper is used with `type` of `checkbox`.
 
-  See [handlebars.helpers.input](/api/classes/Ember.Handlebars.helpers.html#method_input)  for usage details.
+  See [handlebars.helpers.input](/activities/classes/Ember.Handlebars.helpers.html#method_input)  for usage details.
 
   ## Direct manipulation of `checked`
 
@@ -29684,7 +29669,7 @@ var set = Ember.set, get = Ember.get;
   ## Layout and LayoutName properties
 
   Because HTML `input` elements are self closing `layout` and `layoutName`
-  properties will not be applied. See [Ember.View](/api/classes/Ember.View.html)'s
+  properties will not be applied. See [Ember.View](/activities/classes/Ember.View.html)'s
   layout section for more information.
 
   @class Checkbox
@@ -29919,12 +29904,12 @@ var get = Ember.get, set = Ember.set;
   The internal class used to create text inputs when the `{{input}}`
   helper is used with `type` of `text`.
 
-  See [Handlebars.helpers.input](/api/classes/Ember.Handlebars.helpers.html#method_input)  for usage details.
+  See [Handlebars.helpers.input](/activities/classes/Ember.Handlebars.helpers.html#method_input)  for usage details.
 
   ## Layout and LayoutName properties
 
   Because HTML `input` elements are self closing `layout` and `layoutName`
-  properties will not be applied. See [Ember.View](/api/classes/Ember.View.html)'s
+  properties will not be applied. See [Ember.View](/activities/classes/Ember.View.html)'s
   layout section for more information.
 
   @class TextField
@@ -30120,12 +30105,12 @@ var get = Ember.get, set = Ember.set;
   The internal class used to create textarea element when the `{{textarea}}`
   helper is used.
 
-  See [handlebars.helpers.textarea](/api/classes/Ember.Handlebars.helpers.html#method_textarea)  for usage details.
+  See [handlebars.helpers.textarea](/activities/classes/Ember.Handlebars.helpers.html#method_textarea)  for usage details.
 
   ## Layout and LayoutName properties
 
   Because HTML `textarea` elements do not contain inner HTML the `layout` and
-  `layoutName` properties will not be applied. See [Ember.View](/api/classes/Ember.View.html)'s
+  `layoutName` properties will not be applied. See [Ember.View](/activities/classes/Ember.View.html)'s
   layout section for more information.
 
   @class TextArea
@@ -30643,7 +30628,7 @@ function program7(depth0,data) {
   prompt: null,
 
   /**
-    The path of the option labels. See [content](/api/classes/Ember.Select.html#property_content).
+    The path of the option labels. See [content](/activities/classes/Ember.Select.html#property_content).
 
     @property optionLabelPath
     @type String
@@ -30652,7 +30637,7 @@ function program7(depth0,data) {
   optionLabelPath: 'content',
 
   /**
-    The path of the option values. See [content](/api/classes/Ember.Select.html#property_content).
+    The path of the option values. See [content](/activities/classes/Ember.Select.html#property_content).
 
     @property optionValuePath
     @type String
@@ -30913,7 +30898,7 @@ function program7(depth0,data) {
   itself extends `Ember.Component`, meaning that it does NOT inherit
   the `controller` of the parent view.
 
-  See more about [Ember components](api/classes/Ember.Component.html)
+  See more about [Ember components](activities/classes/Ember.Component.html)
 
 
   ## Use as checkbox
@@ -31140,7 +31125,7 @@ Ember.Handlebars.registerHelper('input', function(options) {
   itself extends `Ember.Component`, meaning that it does NOT inherit
   the `controller` of the parent view.
 
-  See more about [Ember components](api/classes/Ember.Component.html)
+  See more about [Ember components](activities/classes/Ember.Component.html)
 
   @method textarea
   @for Ember.Handlebars.helpers
@@ -36121,7 +36106,7 @@ Ember.onLoad('Ember.Handlebars', function(Handlebars) {
     {{/link-to}}
     ```
 
-    See [Ember.LinkView](/api/classes/Ember.LinkView.html) for a
+    See [Ember.LinkView](/activities/classes/Ember.LinkView.html) for a
     complete list of overrideable properties. Be sure to also
     check out inherited properties of `LinkView`.
 
@@ -36188,7 +36173,7 @@ Ember.onLoad('Ember.Handlebars', function(Handlebars) {
   });
 
   /**
-    See [link-to](/api/classes/Ember.Handlebars.helpers.html#method_link-to)
+    See [link-to](/activities/classes/Ember.Handlebars.helpers.html#method_link-to)
 
     @method linkTo
     @for Ember.Handlebars.helpers
@@ -36669,7 +36654,7 @@ Ember.onLoad('Ember.Handlebars', function(Handlebars) {
     ```
 
     If you need the default handler to trigger you should either register your
-    own event handler, or use event methods on your view class. See [Ember.View](/api/classes/Ember.View.html)
+    own event handler, or use event methods on your view class. See [Ember.View](/activities/classes/Ember.View.html)
     'Responding to Browser Events' for more information.
 
     ### Specifying DOM event type
@@ -38280,7 +38265,7 @@ var Application = Ember.Application = Ember.Namespace.extend(Ember.DeferredMixin
   /**
     The root DOM element of the Application. This can be specified as an
     element or a
-    [jQuery-compatible selector string](http://api.jquery.com/category/selectors/).
+    [jQuery-compatible selector string](http://activities.jquery.com/category/selectors/).
 
     This is the element that will be passed to the Application's,
     `eventDispatcher`, which sets up the listeners for event delegation. Every

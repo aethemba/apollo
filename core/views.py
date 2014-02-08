@@ -2,7 +2,7 @@ from django.views.generic.base import TemplateView
 
 
 class HomepageView(TemplateView):
-    template_name="apollo_ember/index.html"
+    template_name="core/index.html"
 
     def get_context_data(self, **kwargs):
         context = super(HomepageView, self).get_context_data(**kwargs)

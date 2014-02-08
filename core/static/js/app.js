@@ -1,5 +1,5 @@
 App = Ember.Application.create();
 
 App.ApplicationAdapter = DS.RESTAdapter.extend({
-   namespace: "api"
+   namespace: "activities"
 });

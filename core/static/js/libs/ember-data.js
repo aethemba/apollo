@@ -3452,7 +3452,7 @@ function addUnsavedRecords(record, key, data) {
   updated when the promise resolves.
 
   For more information see the [Ember.PromiseProxyMixin
-  documentation](/api/classes/Ember.PromiseProxyMixin.html).
+  documentation](/activities/classes/Ember.PromiseProxyMixin.html).
 
   Example
 
@@ -3482,7 +3482,7 @@ DS.PromiseArray = Ember.ArrayProxy.extend(Ember.PromiseProxyMixin);
   be updated when the promise resolves.
 
   For more information see the [Ember.PromiseProxyMixin
-  documentation](/api/classes/Ember.PromiseProxyMixin.html).
+  documentation](/activities/classes/Ember.PromiseProxyMixin.html).
 
   Example
 
@@ -9146,10 +9146,10 @@ var forEach = Ember.ArrayPolyfills.forEach;
 
   ```js
   DS.RESTAdapter.reopen({
-    namespace: 'api/1'
+    namespace: 'activities/1'
   });
   ```
-  Requests for `App.Person` would now target `/api/1/people/1`.
+  Requests for `App.Person` would now target `/activities/1/people/1`.
 
   ### Host customization
 
@@ -9157,7 +9157,7 @@ var forEach = Ember.ArrayPolyfills.forEach;
 
   ```js
   DS.RESTAdapter.reopen({
-    host: 'https://api.example.com'
+    host: 'https://activities.example.com'
   });
   ```
 
@@ -9190,11 +9190,11 @@ DS.RESTAdapter = DS.Adapter.extend({
 
     ```javascript
     DS.RESTAdapter.reopen({
-      namespace: 'api/1'
+      namespace: 'activities/1'
     });
     ```
 
-    Requests for `App.Post` would now target `/api/1/post/`.
+    Requests for `App.Post` would now target `/activities/1/post/`.
 
     @property namespace
     @type {String}
@@ -9205,11 +9205,11 @@ DS.RESTAdapter = DS.Adapter.extend({
 
     ```javascript
     DS.RESTAdapter.reopen({
-      host: 'https://api.example.com'
+      host: 'https://activities.example.com'
     });
     ```
 
-    Requests for `App.Post` would now target `https://api.example.com/post/`.
+    Requests for `App.Post` would now target `https://activities.example.com/post/`.
 
     @property host
     @type {String}
@@ -10242,7 +10242,7 @@ DS.ActiveModelSerializer = DS.RESTSerializer.extend({
       "post": {
         "id": 1,
         "title": "Rails is omakase",
-        "links": { "flagged_comments": "api/comments/flagged" }
+        "links": { "flagged_comments": "activities/comments/flagged" }
       }
     }
     ```
@@ -10253,7 +10253,7 @@ DS.ActiveModelSerializer = DS.RESTSerializer.extend({
       "post": {
         "id": 1,
         "title": "Rails is omakase",
-        "links": { "flaggedComments": "api/comments/flagged" }
+        "links": { "flaggedComments": "activities/comments/flagged" }
       }
     }
     ```
@@ -10491,7 +10491,7 @@ var decamelize = Ember.String.decamelize,
   The ActiveModelAdapter is a subclass of the RESTAdapter designed to integrate
   with a JSON API that uses an underscored naming convention instead of camelcasing.
   It has been designed to work out of the box with the
-  [active_model_serializers](http://github.com/rails-api/active_model_serializers)
+  [active_model_serializers](http://github.com/rails-activities/active_model_serializers)
   Ruby gem.
 
   This adapter extends the DS.RESTAdapter by making consistent use of the camelization,

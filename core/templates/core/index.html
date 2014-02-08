@@ -52,16 +52,58 @@
    </ul>
   <div class="container">
       <div class="row">
+{#          <a href="#" data-toggle="modal" data-target="#viewModal">#}
+{#              <div class="col-md-4 extra-padding">#}
+{#                  </br>#}
+{#                  <div class="panel panel-default">#}
+{#                      <div class="panel-heading">#}
+{#                        <h3 class="panel-title">Spider Finger Exercise</h3>#}
+{#                      </div>#}
+{#                      <div class="panel-body">#}
+{#                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>#}
+{#                        <img src="http://placehold.it/325x200"></br>#}
+{#                      </div>#}
+{#                      <div class="panel-footer">Panel footer</div>#}
+{#                  </div>#}
+{#              </div>#}
+{#          </a>#}
+{#          <div class="col-md-4 extra-padding">#}
+{#              <h2>{%  trans "Activity" %} </h2>#}
+{#              <p>{%  trans "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh." %}</p>#}
+{#              <img src="http://placehold.it/350x200"></br>#}
+{#              </br>#}
+{#              <a href="#" class="btn btn-default" role="button" data-toggle="modal" data-target="#viewModal">{% trans "View Activity" %}</a><span class="left-margin bold">Blues, Rock, Licks</span></br>#}
+{##}
+{#              <a href="#"><span class="label label-primary">Add to routine</span></a>#}
+{#          </div>#}
           {%  for i in loops %}
-          <div class="col-md-4 extra-padding">
-              <h2>{%  trans "Activity" %} </h2>
-              <p>{%  trans "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh." %}</p>
-              <img src="http://placehold.it/350x200"></br>
-              </br>
-              <a href="#" class="btn btn-default" role="button" data-toggle="modal" data-target="#viewModal">{% trans "View Activity" %}</a><span class="left-margin bold">Blues, Rock, Licks</span></br>
+{#          <a href="#" data-toggle="modal" data-target="#viewModal">#}
+              <div class="col-md-4 extra-padding">
+                  </br>
+                  <div class="panel panel-default">
+{#                      <div class="panel-heading">#}
+{#                        <h3 class="panel-title">Spider Finger Exercise</h3>#}
+{#                      </div>#}
+                      <div class="panel-body">
+                        <p >Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+{#                        <img src="http://placehold.it/325x200">#}
+                        <img height="180px" width="320px" src="http://cdn14.dareconf.com/static/images/icons/video_placeholder.png" />
+                        </br>
+                      </div>
 
-              <a href="#"><span class="label label-primary">Add to routine</span></a>
-          </div>
+                      <div class="panel-footer" data-toggle="modal" data-target="#viewModal">Blues Lick Slow<span class="bold pull-right">Video</span></div>
+                  </div>
+              </div>
+{#          </a>#}
+{#          <div class="col-md-4 extra-padding">#}
+{#              <h2>{%  trans "Activity" %} </h2>#}
+{#              <p>{%  trans "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh." %}</p>#}
+{#              <img src="http://placehold.it/350x200"></br>#}
+{#              </br>#}
+{#              <a href="#" class="btn btn-default" role="button" data-toggle="modal" data-target="#viewModal">{% trans "View Activity" %}</a><span class="left-margin bold">Blues, Rock, Licks</span></br>#}
+{##}
+{#              <a href="#"><span class="label label-primary">Add to routine</span></a>#}
+{#          </div>#}
           {% endfor %}
       </div>
   </div>
@@ -110,16 +152,17 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">{% trans "View Activity" %}</h4>
+        <h3 class="modal-title" id="myModalLabel">{% trans "Pearl Jam Alive lick "%}</h3><button type="button" class="btn btn-danger btn-xs">Remove</button>
       </div>
       <div class="modal-body">
-          <h3>Pearl Jam Alive lick</h3>
+
           <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
           <img src="http://cdn14.dareconf.com/static/images/icons/video_placeholder.png" /></br>
-          <h5>Estimated duration</h5>
-          <p>5 mins</p>
           <h5>Files</h5>
           <a href="#">Tab.pdf</a>
+          <h5>Categories</h5>
+          <p>Blues, Exercise, Licks</p>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
