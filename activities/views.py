@@ -1,10 +1,10 @@
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import User
 from rest_framework import viewsets, generics
-from .serializers import UserSerializer, ActivitySerializer
+from core.serializers import UserSerializer
+from .serializers import ActivitySerializer
 from .models import Activity
 
-
-class ActivityList(generics.ListAPIView):
+class ActivityList(generics.ListCreateAPIView):
     """
 	API Endpoint for Activities
 	"""
@@ -15,14 +15,12 @@ class ActivityList(generics.ListAPIView):
     # def get_queryset(self):
     #
     #     return Activity.objects.all()
+    def pre_save(self, obj):
+        print self
+        print obj
+        print self.request.user
+        obj.user = self.request.user
 
-
-class UserList(generics.ListCreateAPIView):
-    """
-	API Endpoint for Users
-	"""
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
 
 
 class ActivityDetail(generics.RetrieveUpdateDestroyAPIView):

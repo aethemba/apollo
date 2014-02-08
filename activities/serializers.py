@@ -6,13 +6,6 @@ from micawber.contrib.mcdjango import providers
 from micawber.exceptions import ProviderException
 from micawber.parsers import standalone_url_re, full_handler
 
-class UserSerializer(serializers.ModelSerializer):
-    activities = serializers.PrimaryKeyRelatedField(many=True)
-
-    class Meta:
-        model = User
-        fields = ("id", "username", "email", "activities")
-
 class ActivitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Activity

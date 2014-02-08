@@ -71,6 +71,14 @@ STATICFILES_FINDERS = (
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',  # Required for django-admin-tools (and others).
+    'django.core.context_processors.i18n',
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.static',
+    'core.context_processors.installed_apps_context_processor',
+)
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -126,6 +134,7 @@ INSTALLED_APPS = (
     'micawber.contrib.mcdjango',
     'sorl.thumbnail',
 
+    #
     'core',
     "activities",
 )

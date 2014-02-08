@@ -9,19 +9,31 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         # Adding model 'Activity'
-        db.create_table(u'api_activity', (
+        db.create_table(u'activities_activity', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('slug', self.gf('django.db.models.fields.SlugField')(unique=True, max_length=100)),
             ('created', self.gf('django.db.models.fields.DateTimeField')()),
             ('updated', self.gf('django.db.models.fields.DateTimeField')()),
-            ('category', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['activities.Category'], null=True, blank=True)),
+            ('image', self.gf('sorl.thumbnail.fields.ImageField')(max_length=255, blank=True)),
             ('description', self.gf('django.db.models.fields.TextField')(blank=True)),
-            ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
+            ('user', self.gf('django.db.models.fields.related.ForeignKey')(related_name='activity', to=orm['auth.User'])),
+            ('embed_url', self.gf('django.db.models.fields.URLField')(default='', max_length=100, null=True, blank=True)),
+            ('file', self.gf('django.db.models.fields.files.FileField')(max_length=100)),
         ))
         db.send_create_signal(u'activities', ['Activity'])
 
+        # Adding M2M table for field category on 'Activity'
+        m2m_table_name = db.shorten_name(u'activities_activity_category')
+        db.create_table(m2m_table_name, (
+            ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
+            ('activity', models.ForeignKey(orm[u'activities.activity'], null=False)),
+            ('category', models.ForeignKey(orm[u'activities.category'], null=False))
+        ))
+        db.create_unique(m2m_table_name, ['activity_id', 'category_id'])
+
         # Adding model 'Category'
-        db.create_table(u'api_category', (
+        db.create_table(u'activities_category', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('name', self.gf('django.db.models.fields.CharField')(max_length=255)),
         ))
@@ -30,22 +42,29 @@ class Migration(SchemaMigration):
 
     def backwards(self, orm):
         # Deleting model 'Activity'
-        db.delete_table(u'api_activity')
+        db.delete_table(u'activities_activity')
+
+        # Removing M2M table for field category on 'Activity'
+        db.delete_table(db.shorten_name(u'activities_activity_category'))
 
         # Deleting model 'Category'
-        db.delete_table(u'api_category')
+        db.delete_table(u'activities_category')
 
 
     models = {
         u'activities.activity': {
             'Meta': {'object_name': 'Activity'},
-            'category': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['activities.Category']", 'null': 'True', 'blank': 'True'}),
+            'category': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['activities.Category']", 'null': 'True', 'blank': 'True'}),
             'created': ('django.db.models.fields.DateTimeField', [], {}),
             'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
+            'embed_url': ('django.db.models.fields.URLField', [], {'default': "''", 'max_length': '100', 'null': 'True', 'blank': 'True'}),
+            'file': ('django.db.models.fields.files.FileField', [], {'max_length': '100'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'image': ('sorl.thumbnail.fields.ImageField', [], {'max_length': '255', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '100'}),
             'updated': ('django.db.models.fields.DateTimeField', [], {}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']"})
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'activity'", 'to': u"orm['auth.User']"})
         },
         u'activities.category': {
             'Meta': {'object_name': 'Category'},
