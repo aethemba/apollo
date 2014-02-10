@@ -1,5 +1,4 @@
 .. image:: https://travis-ci.org/aethemba/apollo.png?branch=master   :target: https://travis-ci.org/aethemba/apollo
-
 APOLLO
 ======
 
