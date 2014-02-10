@@ -3,4 +3,4 @@
 APOLLO
 ======
 
-Apollo is an open-sourc web application to manage your daily (guitarr) practice routine.
+Apollo is an open-source web application to manage your daily (guitar) practice routine.
