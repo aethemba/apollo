@@ -177,6 +177,7 @@
   <script src="{% static 'core/js/libs/ember.js' %}"></script>
   <script src="{% static 'core/js/libs/ember-data.js' %}"></script>
   <script src="{% static 'core/js/app.js' %}"></script>
+
   {% for app in apollo_apps %}
       <script src="{{ STATIC_URL }}{{ app }}/js/routes.js"></script>
       <script src="{{ STATIC_URL }}{{ app }}/js/views.js"></script>
