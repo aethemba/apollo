@@ -27,7 +27,6 @@ class Activity(models.Model):
 
     file = models.FileField(upload_to='documents/%Y/%m/%d')
 
-
     def save(self, *args, **kwargs):
         if not self.id:
             self.created = datetime.now()
