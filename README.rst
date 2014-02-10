@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/aethemba/apollo.png?branch=master)](https://travis-ci.org/aethemba/apollo)
+.. image:: https://travis-ci.org/aethemba/apollo.png?branch=master   :target: https://travis-ci.org/aethemba/apollo
 
 APOLLO
 ======
