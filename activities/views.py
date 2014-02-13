@@ -3,11 +3,22 @@ from rest_framework import viewsets, generics
 from core.serializers import UserSerializer
 from .serializers import ActivitySerializer
 from .models import Activity
+from rest_framework.renderers import JSONRenderer
+
+class EmberJSONRenderer(JSONRenderer):
+
+    def render(self, data, accepted_media_type=None, renderer_context=None):
+        print data
+        data = {'activity' : data }
+        return super(EmberJSONRenderer, self).render(data, accepted_media_type, renderer_context)
+
 
 class ActivityList(generics.ListCreateAPIView):
     """
 	API Endpoint for Activities
 	"""
+    renderer_classes = (EmberJSONRenderer,)
+
     model = Activity
     #queryset = Activity.objects.all()
     serializer_class = ActivitySerializer
@@ -27,6 +38,8 @@ class ActivityDetail(generics.RetrieveUpdateDestroyAPIView):
     """
 	API Endpoint for a single Activity
 	"""
+    renderer_classes = (EmberJSONRenderer,)
+
     queryset = Activity.objects.all()
     serializer_class = ActivitySerializer
 
