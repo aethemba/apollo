@@ -9,11 +9,6 @@
 
 </head>
 <body>
-{#  <script type="text/x-handlebars" data-template-name="activities">#}
-{#  <h1>Welcome to Apollo</h1>#}
-{#  <h2>The online app to manage your musical activities</h2>#}
-{#  {{ outlet }}#}
-{#  </script>#}
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
           <div class="nav-header">
@@ -29,13 +24,6 @@
                   </li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-{#                  <li>#}
-{#                    <a href="#">Signin</a>#}
-{#                  </li>#}
-{#                  <li>#}
-{#                      <img id="fb-login" width="250px" height="35px" src="http://vsurvivor.com/images/login_with_facebook.png"/>#}
-{#                  </li>#}
-
               </ul>
           </div>
       </div>
@@ -47,46 +35,17 @@
     <li class=""><a href="#">Recent Activities <span class="badge">10</span></a></li>
     <li class=""><a href="#">Exercise Activities <span class="badge">13</span></a></li>
     <li class=""><a href="#">Blues Activities <span class="badge">9</span></a></li>
-{#    <li class=""><a href="#" class="btn btn-info">+ New category</a></li>#}
     <li class=""></li><a class="btn btn-info pull-right" data-toggle="modal" data-target="#myModal">{%  trans "Add Activity" %}</a></li>
    </ul>
   <div class="container">
       <div class="row">
-{#          <a href="#" data-toggle="modal" data-target="#viewModal">#}
-{#              <div class="col-md-4 extra-padding">#}
-{#                  </br>#}
-{#                  <div class="panel panel-default">#}
-{#                      <div class="panel-heading">#}
-{#                        <h3 class="panel-title">Spider Finger Exercise</h3>#}
-{#                      </div>#}
-{#                      <div class="panel-body">#}
-{#                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>#}
-{#                        <img src="http://placehold.it/325x200"></br>#}
-{#                      </div>#}
-{#                      <div class="panel-footer">Panel footer</div>#}
-{#                  </div>#}
-{#              </div>#}
-{#          </a>#}
-{#          <div class="col-md-4 extra-padding">#}
-{#              <h2>{%  trans "Activity" %} </h2>#}
-{#              <p>{%  trans "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh." %}</p>#}
-{#              <img src="http://placehold.it/350x200"></br>#}
-{#              </br>#}
-{#              <a href="#" class="btn btn-default" role="button" data-toggle="modal" data-target="#viewModal">{% trans "View Activity" %}</a><span class="left-margin bold">Blues, Rock, Licks</span></br>#}
-{##}
-{#              <a href="#"><span class="label label-primary">Add to routine</span></a>#}
-{#          </div>#}
+
           {%  for i in loops %}
-{#          <a href="#" data-toggle="modal" data-target="#viewModal">#}
               <div class="col-md-4 extra-padding">
                   </br>
                   <div class="panel panel-default">
-{#                      <div class="panel-heading">#}
-{#                        <h3 class="panel-title">Spider Finger Exercise</h3>#}
-{#                      </div>#}
                       <div class="panel-body">
                         <p >Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-{#                        <img src="http://placehold.it/325x200">#}
                         <img height="180px" width="320px" src="http://cdn14.dareconf.com/static/images/icons/video_placeholder.png" />
                         </br>
                       </div>
@@ -94,16 +53,6 @@
                       <div class="panel-footer" data-toggle="modal" data-target="#viewModal">Blues Lick Slow<span class="bold pull-right">Video</span></div>
                   </div>
               </div>
-{#          </a>#}
-{#          <div class="col-md-4 extra-padding">#}
-{#              <h2>{%  trans "Activity" %} </h2>#}
-{#              <p>{%  trans "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh." %}</p>#}
-{#              <img src="http://placehold.it/350x200"></br>#}
-{#              </br>#}
-{#              <a href="#" class="btn btn-default" role="button" data-toggle="modal" data-target="#viewModal">{% trans "View Activity" %}</a><span class="left-margin bold">Blues, Rock, Licks</span></br>#}
-{##}
-{#              <a href="#"><span class="label label-primary">Add to routine</span></a>#}
-{#          </div>#}
           {% endfor %}
       </div>
   </div>
@@ -176,15 +125,13 @@
   <script src="{% static 'core/js/libs/handlebars-1.1.2.js' %}"></script>
   <script src="{% static 'core/js/libs/ember.js' %}"></script>
   <script src="{% static 'core/js/libs/ember-data.js' %}"></script>
-  <script src="{% static 'core/js/app.js' %}"></script>
 
-  {% for app in apollo_apps %}
-      <script src="{{ STATIC_URL }}{{ app }}/js/routes.js"></script>
-      <script src="{{ STATIC_URL }}{{ app }}/js/views.js"></script>
-      <script src="{{ STATIC_URL }}{{ app }}/js/models.js"></script>
-      <script src="{{ STATIC_URL }}{{ app }}/js/components.js"></script>
-      <script src="{{ STATIC_URL }}{{ app }}/js/controllers.js"></script>
-  {% endfor %}
+  <script src="{% static 'core/js/app.js' %}"></script>
+  <script src="{% static 'core/js/routes.js' %}"></script>
+  <script src="{% static 'core/js/views.js' %}"></script>
+  <script src="{% static 'core/js/models.js' %}"></script>
+  <script src="{% static 'core/js/components.js' %}"></script>
+  <script src="{% static 'core/js/controllers.js' %}"></script>
 
 {% block extra_script %}{% endblock %}
 </body>
